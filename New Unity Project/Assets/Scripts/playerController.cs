@@ -84,16 +84,17 @@ public class playerController : MonoBehaviour {
 	}
 
 	void freeMove () {
-		move = Input.GetAxis ("Horizontal");									//gets the horizontal axis and adds it to the movement
-		myRB.velocity = new Vector2 (move * (moveSpeed * myStat.moveSpeed), myRB.velocity.y);	//adds it to the Rigidbody2D as velocity (multiplied by base and player speeds)
+		move = Input.GetAxis ("Horizontal");                                    //gets the horizontal axis and adds it to the movement
+        //myRB.velocity = new Vector2 (move * (moveSpeed * myStat.moveSpeed), myRB.velocity.y);	//old: adds it to the Rigidbody2D as velocity (multiplied by base and player speeds)
+        //myRB.AddForce(new Vector2(move * Time.fixedDeltaTime * myRB.mass * moveSpeed * 100, 0), ForceMode2D.Force);   //test: adds a force based on a fixed time between frames and the player's weight
+        transform.Translate(new Vector2 (Mathf.Abs (move) * myStat.moveSpeed * moveSpeed * Time.fixedDeltaTime, 0), Space.Self);   //moves forward, relative to the world, based on player speeds and the fixed time between frames
 		floor = Physics2D.OverlapCircle
 			(groundCheck.position, groundCheckRadius, groundLayer);	
 		//creates a circle at groundCheck's position, if it touches an object with the layer groundLayer (currently Ground): player is at the floor
 		myAnim.SetFloat ("move", Mathf.Abs (move));
 		if ( (move < 0 && facingRight)											//if the player is moving left but is turned right...
 			||	(move > 0 && !facingRight))											//or if the player is moving right but is turned left...
-			flip ();															//flips with a function
-		
+			flip ();                                                            //flips with a function
 
 	}
 
