@@ -21,3 +21,26 @@ C:\Users\Davi\Documents\Unity Projects\New Unity Project\obj\Debug\Assembly-CSha
 C:\Users\Davi\Documents\Unity Projects\New Unity Project\obj\Debug\Assembly-CSharp.pdb
 C:\Users\Davi\Documents\Unity Projects\New Unity Project\Temp\bin\Debug\PlayerIOUnity3DClient.dll
 C:\Users\Davi\Documents\Unity Projects\New Unity Project\Temp\bin\Debug\LitJson.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\LitJson.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\PlayerIOUnity3DClient.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\UnityEngine.Networking.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\Unity.SerializationLogic.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\Unity.UNetWeaver.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\Unity.CecilTools.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\UnityEngine.xml
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\UnityEditor.xml
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\UnityEngine.UI.xml
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\Temp\bin\Debug\UnityEngine.Networking.xml
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\obj\Debug\Assembly-CSharp.dll
+C:\Users\Davi\Documents\GitHub\UNITY\FirstUnityProject\New Unity Project\obj\Debug\Assembly-CSharp.pdb

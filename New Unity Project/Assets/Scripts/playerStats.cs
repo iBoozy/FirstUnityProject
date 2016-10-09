@@ -4,13 +4,16 @@ using System.Collections;
 
 public class playerStats : MonoBehaviour {
 
-	public float maxHP, maxMP, attack, defense, jumpPower, moveSpeed,
-	HP5, MP5, attackSpeed, attackRange;											//many variables! They mean power
+	public float HP, MP, maxHP, maxMP, attack, defense, jumpPower, moveSpeed,
+	HP5, MP5, attackSpeed, attackRange, runSpeed;											//many variables! They mean power
 	//Most are self explainatory. More:
 	//HP5: recovers this much HP after 5 seconds
 	public GameObject deathFX;													//object created when dead
-	private float HP, MP;											//more power variables, only private
 	public int weapon = 0;
+
+    private float drainTime = 1f;                                                    //I mean, this time it's private, right
+    //time after MP drains which you can't use magic
+    private float tempDrain;                        //holds a variable related to above, only temp
 
 	public Slider HPBar;														//health bar
 	public Slider MPBar;														//magic bar
@@ -38,8 +41,8 @@ public class playerStats : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		HP += (HP5 / 5) * Time.deltaTime;
-		MP += (MP5 / 5) * Time.deltaTime;
+		HP += (HP5 / 5) * Time.fixedDeltaTime;
+		MP += (MP5 / 5) * Time.fixedDeltaTime;
 	}
 
 	public void doDamage (float damage) {										//function to cause damage
@@ -48,6 +51,24 @@ public class playerStats : MonoBehaviour {
 		if (HP <= 0)															//if your HP got to 0 or less...
 			defeated ();														//YOU DIED (nearby airplane noises?)
 	}
+
+    public bool doMagic (float cost) {      //function to calculate MP costs
+        if (MP < cost) {                    //if the cost is higher than your current MP...
+            tempDrain = (Time.time + drainTime);        //you have your MP drained
+            return false;                   //and the spell can't be cast
+        }
+        //return completely exits the function when activated
+        else if (tempDrain > Time.time)         //or, if you have your MP drained...
+            return false;                       //spell can't be cast
+
+
+
+        MP -= (Mathf.Clamp(cost, 0, Mathf.Infinity));       //if the MP is higher or equal to the cost: decrease MP
+        MPBar.value = MP;                                   //update the MP bar
+        return true;                                        //magic is castable
+
+    }
+
 	public void push (float force, float forceUp) {								//function for being pushed
 		player.GetComponent <Rigidbody2D> ().velocity = new Vector2 (0, 0);		//your speed is reset
 		player.GetComponent <Rigidbody2D> ().AddForce (new Vector2(force, forceUp) );	//force happens
