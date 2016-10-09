@@ -77,6 +77,14 @@ public class playerController : MonoBehaviour {
 
 	void freeMove () {
 		move = Input.GetAxis ("Horizontal");                                    //gets the horizontal axis and adds it to the movement
+
+        if (Input.GetKey(KeyCode.LeftShift) &&                                  //if you're holding LeftShift...
+        move != 0 &&                                                            //is moving...
+        myStat.doMagic((6 / 5) * Time.fixedDeltaTime) )                         //and can pay the MP cost...
+            //those checks are done in order. Importantly, because the MP cost check spends MP on it's own, if placed earlier it could drain MP without satisfying all conditions and then draining MP for nothing
+            move *= myStat.runSpeed;                                            //move is multiplied by your run multiplier from your stats
+        
+
         //myRB.velocity = new Vector2 (move * (moveSpeed * myStat.moveSpeed), myRB.velocity.y);	//old: adds it to the Rigidbody2D as velocity (multiplied by base and player speeds)
         //myRB.AddForce(new Vector2(move * Time.fixedDeltaTime * myRB.mass * moveSpeed * 100, 0), ForceMode2D.Force);   //test: adds a force based on a fixed time between frames and the player's weight
 
@@ -116,6 +124,7 @@ public class playerController : MonoBehaviour {
         }
         //look at the order of the functions. The game will have this priority for jumps:
         //Ground jumps > wall jumps > air jumps
+        //while you can hold Space to ground jump you need to press it for air or wall jumps
 
         if (jump) {     //if you can jump...
             float tempJumpPower = jumpPower * myStat.jumpPower;                 //takes the standard jump height and multiplies it with the player's jump multiplier
