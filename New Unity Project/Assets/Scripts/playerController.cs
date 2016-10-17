@@ -84,12 +84,12 @@ public class playerController : MonoBehaviour {
             //those checks are done in order. Importantly, because the MP cost check spends MP on it's own, if placed earlier it could drain MP without satisfying all conditions and then draining MP for nothing
             move *= myStat.runSpeed;                                            //move is multiplied by your run multiplier from your stats
         
-
         //myRB.velocity = new Vector2 (move * (moveSpeed * myStat.moveSpeed), myRB.velocity.y);	//old: adds it to the Rigidbody2D as velocity (multiplied by base and player speeds)
         //myRB.AddForce(new Vector2(move * Time.fixedDeltaTime * myRB.mass * moveSpeed * 100, 0), ForceMode2D.Force);   //test: adds a force based on a fixed time between frames and the player's weight
 
         transform.Translate(new Vector2 (Mathf.Abs (move) * myStat.moveSpeed * moveSpeed * Time.fixedDeltaTime, 0), Space.Self);   //moves forward, relative to the world, based on player speeds and the fixed time between frames
-		floor = Physics2D.OverlapCircle
+
+        floor = Physics2D.OverlapCircle
 			(groundCheck.position, groundCheckRadius, groundLayer);
         //creates a circle at groundCheck's position, if it touches an object with the layer groundLayer (currently Ground): player is at the floor
         wall = Physics2D.OverlapCircle
@@ -106,6 +106,9 @@ public class playerController : MonoBehaviour {
     void doJump () {                                //this function has nearly everything jump related
         bool jump = false;                          //checks if you can jump
         bool wallJump = false;                      //checks if the jump is a wall jump
+
+        if (floor == true)                                                      //if you're on the floor...
+            tempJump = jumpCount;                                               //refill double jumps
 
         if (floor == true && Input.GetAxis ("Jump") != 0) {         //if you're on the floor and holding the jump button...
             //for some reason Debug.Log prints more than one time, but this doesn't seem to have any gameplay changes...
@@ -141,8 +144,6 @@ public class playerController : MonoBehaviour {
                 //bug: force is ineffective if moving towards the wall, is persistent when it does work
             }
         }
-        if (floor == true)                                                      //if you're on the floor...
-            tempJump = jumpCount;                                               //refill double jumps
 
 
 
@@ -165,8 +166,8 @@ public class playerController : MonoBehaviour {
     void wallInteract () {          //what happens when your character is at a wall
         if (wall && !floor) {       //if you're at a wall, but not on the floor...
             Vector2 speedScale = myRB.velocity;         //saves a vector which holds the current velocity
-            float fallCap = -2f;                        //a falling speed cap
-            if (myRB.velocity.y <= fallCap) {       //if you're falling faster than 2m/s...
+            float fallCap = 2f;                        //a falling speed cap
+            if (myRB.velocity.y <= -fallCap) {       //if you're falling faster than 2m/s...
                 speedScale.y = Mathf.Lerp(speedScale.y, fallCap, 0.18f);            //soft cap activates, pushes closer to 2m/s... but not instantly
                 //the lerp should be too weak to actually keep you on 2m/s, it's a bit faster
                 myRB.velocity = speedScale;     //puts the speed back

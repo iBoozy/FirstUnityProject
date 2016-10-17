@@ -3,7 +3,7 @@ using System.Collections;
 
 public class enemyStats : MonoBehaviour {
 
-	public float maxHP, maxMP, attack, defense;							//many variables!
+	public float maxHP, maxMP, attack, defense, viewRange;							//many variables!
 	public bool canJump, canMove;
 	public GameObject deathFX;
 	enemyController enemy;
